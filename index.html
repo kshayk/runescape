@@ -1,275 +1,285 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Untitled Document</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="main.js"></script>
+  <meta charset="utf-8">
+  <title>Untitled Document</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.maphilight.min.js"></script>
+  <script src="js/main.js"></script>
 
-<style>
-body, html{margin:0; padding:0}
-#container{ position:fixed; margin-top:2px; margin-left:2px; z-index:1; padding:0}
-#iframe{border:0}
-</style>
+  <style>
+  body, html{margin:0; padding:0}
+  #container{ position:fixed; margin-top:2px; margin-left:2px; z-index:1; padding:0; }
+  #page_scroll_down{width: 90%; height: 5%; position: fixed; top : 95%; left: 5%; z-index:1; }
+  #page_scroll_up{width: 72.5%; height: 5%; position: fixed; left: 22.5%; z-index:1; }
+  #page_scroll_left{width: 5%; height:94%; position: fixed; top: 6%; z-index:1; }
+  #page_scroll_right{width: 5%; height:100%; position: fixed; left: 95%; z-index:1; }
+  #iframe{border:0}
+  body{ overflow: hidden;}
+  </style>
 </head>
 
 <body>
-<div id="container"><iframe id="iframe" height="34"></iframe></div>
+  <div id="container"><iframe id="iframe" height="34"></iframe></div>
+  <div id="page_scroll_down"></div>
+  <div id="page_scroll_up"></div>
+  <div id="page_scroll_left"></div>
+  <div id="page_scroll_right"></div>
 
-<img src="world_map.png" usemap="#Map"/>
-<map name="Map">
-  <area shape="rect" coords="1785,1440,1818,1466" href="#" alt="Swensen's_maze" id="Swensens_maze">
-  <area shape="rect" coords="4867,1922,4971,2057" href="#" alt="port_Phasmatys" id="port_Phasmatys">
-  <area shape="rect" coords="2234,1576,2263,1600" href="#" alt="Rellekka_Dungeon" id="Rellekka_Dungeon">
-  <area shape="rect" coords="3101,2283,3265,2500" href="#" alt="draynor_manor" id="draynor_manor">
-  <area shape="rect" coords="3593,572,3782,704" href="#" alt="rogue_castle" id="rogue_castle">
-  <area shape="rect" coords="3712,1804,3873,1895" href="#" alt="north_lumberyard" id="north_lumberyard">
-  <area shape="rect" coords="1163,3056,1242,3171" href="#" alt="wait_castlewars" id="wait_castlewars">
-  <area shape="rect" coords="1602,2930,1715,3020" href="#" alt="fight_arena" id="fight_arena">
-  <area shape="rect" coords="1272,2115,1332,2194" href="#" alt="gnome_agility" id="gnome_agility">
-  <area shape="rect" coords="2318,1699,2465,1756" href="#" alt="burt-death" id="burt-death">
-  <area shape="rect" coords="2327,1504,2616,1697" href="#" alt="death_plateau" id="death_plateau">
-  <area shape="rect" coords="2993,1941,3095,2073" href="#" alt="west_edgville" id="west_edgville">
-  <area shape="circle" coords="3573,2060,11" href="#" alt="varrock_sewers" id="varrock_sewers">
-  <area shape="rect" coords="2500,2912,2730,3033" href="#" alt="musa_point" id="musa_point">
-  <area shape="rect" coords="1535,2357,1575,2387" href="#" alt="druid_tower" id="druid_tower">
-  <area shape="rect" coords="1852,2696,1891,2729" href="#" alt="necromancer_tower" id="necromancer_tower">
-  <area shape="rect" coords="3857,2115,4000,2247" href="#" alt="digsite" id="digsite">
-  <area shape="rect" coords="2969,2376,3041,2448" href="#" alt="east_falador" id="east_falador">
-  <area shape="rect" coords="2778,2380,2946,2449" href="#" alt="south_falador" id="south_falador">
-<area shape="rect" coords="1220,3247,1512,3426" href="#" alt="jiggig" id="jiggig">
-  <area shape="rect" coords="2988,802,3201,953" href="#" alt="lava_maze" id="lava_maze">
-  <area shape="rect" coords="1559,3331,1613,3396" href="#" alt="ogre_enclave" id="ogre_enclave">
-  <area shape="rect" coords="5221,1703,5367,1865" href="#" alt="dragontooth" id="dragontooth">
-  <area shape="rect" coords="4521,2503,4632,2566" href="#" alt="barrows" id="barrows">
-  <area shape="rect" coords="4521,2570,4626,2653" href="#" alt="barrows2" id="barrows2">
-<area shape="rect" coords="4433,2315,4603,2495" href="#" alt="south_castle_drakan" id="south_castle_drakan">
-<area shape="rect" coords="4102,2094,4282,2356" href="#" alt="mort_myre_swamp" id="mort_myre_swamp">
-  <area shape="rect" coords="2853,2698,3036,2882" href="#" alt="port_sarim" id="port_sarim">
-  <area shape="rect" coords="5301,3430,5386,3605" href="#" alt="trouble_brewing" id="trouble_brewing">
-  <area shape="rect" coords="3690,2854,4031,3041" href="#" alt="alkharid_town" id="alkharid_town">
-  <area shape="rect" coords="3703,2492,3869,2621" href="#" alt="alkharid_mine" id="alkharid_mine">
-  <area shape="rect" coords="4135,2466,4243,2666" href="#" alt="west_mortton" id="west_mortton">
-  <area shape="rect" coords="755,2179,1020,2431" href="#" alt="southwest_gnomestronghold" id="southwest_gnomestronghold">
-  <area shape="rect" coords="1009,1953,1087,2003" href="#" alt="gnomball" id="gnomball">
-  <area shape="rect" coords="4116,2359,4270,2463" href="#" alt="grotto" id="grotto">
-  <area shape="rect" coords="2153,2814,2266,2899" href="#" alt="brimhaven" id="brimhaven">
-  <area shape="rect" coords="1960,2779,2138,2898" href="#" alt="brimhaven2" id="brimhaven2">
-<area shape="circle" coords="2400,2922,83" href="#" alt="karamja_volcano" id="karamja_volcano">
-  <area shape="rect" coords="2009,1666,2130,1807" href="#" alt="sinclair_mansion" id="sinclair_mansion">
-  <area shape="rect" coords="1380,3438,1607,3576" href="#" alt="feldip_hills" id="feldip_hills">
-  <area shape="rect" coords="2438,1288,2617,1367" href="#" alt="north_trollheim" id="north_trollheim">
-  <area shape="rect" coords="4070,1709,4211,1818" href="#" alt="slayer_tower" id="slayer_tower">
-  <area shape="rect" coords="2931,1594,3229,1680" href="#" alt="chaos_altar" id="chaos_altar">
-  <area shape="rect" coords="2923,1489,3029,1584" href="#" alt="dark_fortress" id="dark_fortress">
-<area shape="rect" coords="2719,1686,3066,1858" href="#" alt="north_goblin_village" id="north_goblin_villag">
-  <area shape="rect" coords="1963,2278,2096,2346" href="#" alt="legend_guild" id="legend_guild">
-  <area shape="rect" coords="3853,3431,4006,3635" href="#" alt="pollnivneach" id="pollnivneach">
-  <area shape="rect" coords="2138,2555,2254,2638" href="#" alt="fishing_platform" id="fishing_platform">
-  <area shape="rect" coords="2802,717,3366,796" href="#" alt="north_lava_maze" id="north_lava_maze">
-  <area shape="rect" coords="2854,2887,3017,3056" href="#" alt="south_port_sarim" id="south_port_sarim">
-  <area shape="circle" coords="2467,3393,28" href="#" alt="nature_altar" id="nature_altar">
-  <area shape="rect" coords="993,936,1160,1105" href="#" alt="jatizso" id="jatizso">
-  <area shape="rect" coords="790,979,939,1025" href="#" alt="neitiznot" id="neitiznot">
-  <area shape="rect" coords="787,1036,953,1103" href="#" alt="neitiznot2" id="neitiznot2">
-  <area shape="rect" coords="2248,3106,2333,3294" href="#" alt="tai_bwo_wannai" id="tai_bwo_wannai">
-  <area shape="rect" coords="5210,3829,5389,3983" href="#" alt="harmony" id="harmony">
-  <area shape="rect" coords="644,2807,807,2979" href="#" alt="isafdar" id="isafdar">
-  <area shape="circle" coords="3785,2012,23" href="#" alt="earth_altar" id="earth_altar">
-  <area shape="rect" coords="353,2748,594,2989" href="#" alt="south_prifddinas" id="south_prifddinas">
-  <area shape="rect" coords="1103,2657,1298,2848" href="#" alt="unholy_altar" id="unholy_altar">
-  <area shape="rect" coords="2693,934,2827,1027" href="#" alt="chaos_tample" id="chaos_tample">
-  <area shape="rect" coords="2691,3231,2901,3408" href="#" alt="shipyard" id="shipyard">
-  <area shape="rect" coords="1738,2864,1938,3046" href="#" alt="khazard" id="khazard">
-  <area shape="rect" coords="4435,1721,4596,1855" href="#" alt="fenkenstrain" id="fenkenstrain">
-  <area shape="rect" coords="1043,2119,1251,2251" href="#" alt="tree_gnome" id="tree_gnome">
-  <area shape="circle" coords="3024,2102,21" href="#" alt="body_altar" id="body_altar">
-  <area shape="circle" coords="1401,3191,32" href="#" alt="ogre_island" id="ogre_island">
-  <area shape="rect" coords="1319,3594,1696,3922" href="#" alt="feldip_hunting" id="feldip_hunting">
-  <area shape="rect" coords="2540,3129,2672,3340" href="#" alt="crashed_glider" id="crashed_glider">
-  <area shape="rect" coords="2111,3464,2194,3567" href="#" alt="cairn_isle" id="cairn_isle">
-  <area shape="rect" coords="1312,1466,1484,1645" href="#" alt="light_house" id="light_house">
-  <area shape="rect" coords="1489,1487,1765,1677" href="#" alt="west_rellekka" id="west_rellekka">
-  <area shape="rect" coords="1362,2275,1467,2367" href="#" alt="combat_training" id="combat_training">
-  <area shape="rect" coords="1743,4393,1963,4548" href="#" alt="pest_control" id="pest_control">
-  <area shape="rect" coords="1930,2408,2041,2504" href="#" alt="south_legends_guild" id="south_legends_guild">
-  <area shape="circle" coords="1208,2919,64" href="#" alt="observatory" id="observatory">
-  <area shape="rect" coords="1546,1926,1658,2055" href="#" alt="coal_trucks" id="coal_trucks">
-  <area shape="rect" coords="3686,1477,3897,1679" href="#" alt="middle_wilderness_forest" id="middle_wilderness_forest">
-  <area shape="rect" coords="360,2618,559,2746" href="#" alt="elf_camp" id="elf_camp">
-  <area shape="circle" coords="3334,2968,20" href="#" alt="water_altar" id="water_altar">
-  <area shape="rect" coords="1733,4579,1936,4763" href="#" alt="pest_control2" id="pest_control2">
-  <area shape="circle" coords="3807,2674,19" href="#" alt="fire_altar" id="fire_altar">
-  <area shape="rect" coords="2134,1350,2312,1557" href="#" alt="mountain_camp" id="mountain_camp">
-  <area shape="rect" coords="2437,1374,2617,1498" href="#" alt="trollheim" id="trollheim">
-  <area shape="rect" coords="3864,2663,4039,2738" href="#" alt="duel_arena" id="duel_arena">
-  <area shape="rect" coords="3865,2747,4043,2827" href="#" alt="duel_arena2" id="duel_arena2">
-<area shape="rect" coords="2853,1021,3103,1293" href="#" alt="north_bandit_camp" id="north_bandit_camp">
-  <area shape="circle" coords="2810,1895,23" href="#" alt="mind_altar" id="mind_altar">
-  <area shape="rect" coords="2388,1191,2538,1283" href="#" alt="ice_wolfs" id="ice_wolfs">
-  <area shape="rect" coords="2510,4216,2707,4369" href="#" alt="crash_island" id="crash_island">
-  <area shape="rect" coords="2063,4035,2298,4176" href="#" alt="marim" id="marim">
-  <area shape="rect" coords="2741,1397,2915,1673" href="#" alt="west_chaos_altar" id="west_chaos_altar">
-  <area shape="rect" coords="2782,3061,2922,3152" href="#" alt="mudskipper" id="mudskipper">
-  <area shape="rect" coords="1309,704,1599,823" href="#" alt="miscellania" id="miscellania">
-  <area shape="rect" coords="1610,712,1755,919" href="#" alt="etceteria" id="etceteria">
-  <area shape="poly" coords="2472,2113,2477,1869,2272,1881,2260,1949,2370,1957,2389,2084" href="#" alt="white_wolf_mountain" id="white_wolf_mountain">
-  <area shape="rect" coords="738,1569,1034,1792" href="#" alt="falconer" id="falconer">
-  <area shape="rect" coords="4269,2673,4487,2911" href="#" alt="burgh_de_rott" id="burgh_de_rott">
-  <area shape="rect" coords="1933,4220,2339,4382" href="#" alt="south_ape_atoll" id="south_ape_atoll">
-  <area shape="rect" coords="1358,1095,1554,1292" href="#" alt="water_birth" id="water_birth">
-  <area shape="rect" coords="392,915,597,1087" href="#" alt="pirate_cove" id="pirate_cove">
-  <area shape="rect" coords="4309,2095,4433,2204" href="#" alt="south_canifis" id="south_canifis">
-  <area shape="rect" coords="4110,2038,4290,2088" href="#" alt="mort_myre_entrance" id="mort_myre_entrance">
-  <area shape="rect" coords="3915,3876,4010,3961" href="#" alt="agility_pyramid" id="agility_pyramid">
-  <area shape="rect" coords="2343,3136,2529,3345" href="#" alt="east_tai_bwo" id="east_tai_bwo">
-  <area shape="rect" coords="3308,3456,3453,3570" href="#" alt="bandit_camp" id="bandit_camp">
-  <area shape="rect" coords="3318,3703,3626,4018" href="#" alt="pyramid" id="pyramid">
-  <area shape="rect" coords="2165,3095,2240,3300" href="#" alt="tai_bwo_wannai2" id="tai_bwo_wannai2">
-  <area shape="rect" coords="2527,3417,2739,3590" href="#" alt="west_karamja_glider" id="west_karamja_glider">
-  <area shape="rect" coords="4120,1899,4289,2032" href="#" alt="east_canifis" id="east_canifis">
-  <area shape="rect" coords="4460,1920,4816,2203" href="#" alt="hunted_woods" id="hunted_woods">
-  <area shape="rect" coords="316,3105,575,3229" href="#" alt="south_tyras" id="south_tyras">
-  <area shape="rect" coords="2549,1183,2701,1283" href="#" alt="north_trollheim2" id="north_trollheim2">
-  <area shape="rect" coords="2152,2908,2304,3023" href="#" alt="brimhaven3" id="brimhaven3">
-  <area shape="rect" coords="1964,2912,2137,3027" href="#" alt="west_brimhaven" id="west_brimhaven">
-<area shape="rect" coords="3531,4107,3785,4155" href="#" alt="sphinx" id="sphinx">
-  <area shape="rect" coords="726,2989,925,3113" href="#" alt="north_poison_waste" id="north_poison_waste">
-  <area shape="rect" coords="4089,3042,4406,3168" href="#" alt="ruins_of_uzer" id="ruins_of_uzer">
-  <area shape="rect" coords="208,652,359,820" href="#" alt="east_lunar" id="east_lunar">
-  <area shape="rect" coords="1313,832,1593,982" href="#" alt="miscellania2" id="miscellania2">
-  <area shape="circle" coords="2437,2295,18" href="#" alt="law_altar" id="law_altar">
-  <area shape="rect" coords="4384,2539,4517,2654" href="#" alt="east_mortton" id="east_mortton">
-  <area shape="rect" coords="2362,1765,2513,1854" href="#" alt="warriors_guild" id="warriors_guild">
-  <area shape="circle" coords="4501,2050,21" href="#" alt="warewolf_agility" id="warewolf_agility">
-  <area shape="rect" coords="2170,3307,2325,3369" href="#" alt="south_tai_bwo" id="south_tai_bwo">
-  <area shape="rect" coords="2195,3618,2806,3709" href="#" alt="eastern_kharazi" id="eastern_kharazi">
-  <area shape="rect" coords="867,3243,1197,3332" href="#" alt="south_castlewars" id="south_castlewars">
-  <area shape="rect" coords="3484,3180,3678,3298" href="#" alt="north_bedabin" id="north_bedabin">
-  <area shape="rect" coords="3665,3302,3806,3425" href="#" alt="desert_mining_camp" id="desert_mining_camp">
-  <area shape="rect" coords="4138,2675,4264,2835" href="#" alt="abandoned_mine" id="abandoned_mine">
-  <area shape="rect" coords="4044,3398,4255,3618" href="#" alt="north_nardah" id="north_nardah">
-  <area shape="rect" coords="758,1851,970,2108" href="#" alt="eagles_peak" id="eagles_peak">
-  <area shape="rect" coords="5203,3425,5295,3602" href="#" alt="trouble_brewing2" id="trouble_brewing2">
-  <area shape="rect" coords="2969,532,3014,612" href="#" alt="pirates_hideout" id="pirates_hideout">
-  <area shape="rect" coords="1915,1031,2110,1179" href="#" alt="north_relleka_hunt" id="north_relleka_hunt">
-  <area shape="rect" coords="1989,4132,2058,4212" href="#" alt="marim_main_gate" id="marim_main_gate">
-  <area shape="rect" coords="3482,3070,3616,3168" href="#" alt="kalphite_hive" id="kalphite_hive">
-  <area shape="rect" coords="2319,3429,2487,3607" href="#" alt="shilo_village" id="shilo_village">
-  <area shape="rect" coords="3688,3044,3913,3286" href="#" alt="Shantay_Pass" id="Shantay_Pass">
-  <area shape="rect" coords="4840,3296,5161,3470" href="#" alt="moss_leharmless" id="moss_leharmless">
-  <area shape="rect" coords="4652,2220,4884,2914" href="#" alt="meiyerditch" id="meiyerditch">
-  <area shape="rect" coords="4828,3495,5127,3671" href="#" alt="mos_coast" id="mos_coast">
-  <area shape="rect" coords="587,3004,718,3213" href="#" alt="elf_tracker" id="elf_tracker">
-  <area shape="rect" coords="4820,1924,4863,2063" href="#" alt="Phasmatys_brewery" id="Phasmatys_brewery">
-  <area shape="rect" coords="1621,3438,1785,3584" href="#" alt="Rantz" id="Rantz">
-  <area shape="rect" coords="3680,3807,3907,4004" href="#" alt="north_sophanem" id="north_sophanem">
-  <area shape="rect" coords="4010,3625,4237,3864" href="#" alt="nardah" id="nardah">
-  <area shape="rect" coords="798,2503,964,2719" href="#" alt="arandar" id="arandar">
-  <area shape="rect" coords="3444,3321,3656,3448" href="#" alt="east_bedabin" id="east_bedabin">
-  <area shape="rect" coords="4811,1845,4887,1911" href="#" alt="ecto" id="ecto">
-  <area shape="rect" coords="4642,1720,4838,1816" href="#" alt="shipwrecked" id="shipwrecked">
-  <area shape="rect" coords="4298,2219,4425,2479" href="#" alt="the_hollows" id="the_hollows">
-  <area shape="rect" coords="4321,2045,4468,2089" href="#" alt="Myreque_hideout" id="Myreque_hideout">
-  <area shape="rect" coords="3513,3549,3789,3691" href="#" alt="north_pyramid" id="north_pyramid">
-  <area shape="rect" coords="31,593,201,884" href="#" alt="lunar_isle" id="lunar_isle">
-  <area shape="rect" coords="1935,2521,2090,2648" href="#" alt="witchaven" id="witchaven">
-  <area shape="rect" coords="4081,3178,4404,3379" href="#" alt="ruins_of_uzer2" id="ruins_of_uzer2">
-  <area shape="rect" coords="3545,4042,3784,4093" href="#" alt="Jalsavrah_Pyramid" id="Jalsavrah_Pyramid">
-  <area shape="rect" coords="2171,3732,2830,3802" href="#" alt="south_eastern_kharazi" id="south_eastern_kharazi">
-  <area shape="rect" coords="3829,2256,4013,2449" href="#" alt="digsite2" id="digsite2">
-  <area shape="rect" coords="3453,1928,3573,2086" href="#" alt="varrock_palace" id="varrock_palace">
-  <area shape="rect" coords="3080,1860,3247,1912" href="#" alt="edgeville-black_knight" id="edgeville-black_knight">
-  <area shape="rect" coords="3686,2695,3845,2838" href="#" alt="lubridge-duel" id="lubridge-duel">
-  <area shape="rect" coords="2689,2274,2764,2477" href="#" alt="west_bank_falador" id="west_bank_falador">
-  <area shape="rect" coords="2611,2852,2817,2881" href="#" alt="south_rimmington" id="south_rimmington">
-  <area shape="rect" coords="3466,2602,3631,2709" href="#" alt="north_lumbridge" id="north_lumbridge">
-  <area shape="rect" coords="2272,2818,2307,2899" href="#" alt="brimhaven_agility" id="brimhaven_agility">
-  <area shape="poly" coords="2280,2288,2284,2433,2455,2440,2448,2364,2375,2288" href="#" alt="entrana" id="entrana">
-  <area shape="rect" coords="1598,2761,1761,2844" href="#" alt="monastrey" id="monastrey">
-  <area shape="rect" coords="3073,2100,3142,2229" href="#" alt="barbarian_village" id="barbarian_village">
-  <area shape="rect" coords="1745,2442,1910,2616" href="#" alt="east_ardougne_market" id="east_ardougne_market">
-  <area shape="rect" coords="1467,3118,1578,3223" href="#" alt="west_yanille" id="west_yanille">
-  <area shape="rect" coords="3369,2871,3595,3010" href="#" alt="lumbridge_swamp" id="lumbridge_swamp">
-  <area shape="rect" coords="1941,1286,2048,1481" href="#" alt="east_rellekka" id="east_rellekka">
-  <area shape="rect" coords="2091,1882,2189,1991" href="#" alt="camelot_castle" id="camelot_castle">
-  <area shape="rect" coords="965,3037,1155,3235" href="#" alt="castlewars" id="castlewars">
-  <area shape="rect" coords="3397,2090,3454,2142" href="#" alt="varrock_west_bank" id="varrock_west_bank">
-  <area shape="rect" coords="3478,1171,3895,1279" href="#" alt="east_ruins" id="east_ruins">
-  <area shape="rect" coords="2320,1350,2415,1477" href="#" alt="troll_stronghold" id="troll_stronghold">
-  <area shape="rect" coords="3283,1813,3673,1864" href="#" alt="north_varrock" id="north_varrock">
-  <area shape="rect" coords="3075,1696,3248,1852" href="#" alt="north_edgville" id="north_edgville">
-  <area shape="rect" coords="3524,1435,3653,1526" href="#" alt="southwest_boneyard" id="southwest_boneyard">
-  <area shape="rect" coords="3453,1292,3889,1426" href="#" alt="graveyard_of_shadows" id="graveyard_of_shadows">
-  <area shape="rect" coords="3198,1949,3263,2044" href="#" alt="east_edgeville" id="east_edgeville">
-  <area shape="rect" coords="3282,2679,3457,2816" href="#" alt="lumbridge-draynor" id="lumbridge-draynor">
-  <area shape="rect" coords="1370,2853,1520,3026" href="#" alt="tree_gnome_maze" id="tree_gnome_maze">
-  <area shape="rect" coords="2615,2659,2701,2752" href="#" alt="melzars_maze" id="melzars_maze">
-  <area shape="circle" coords="3266,1300,146" href="#" alt="wilderness_volcano" id="wilderness_volcano">
-  <area shape="rect" coords="3408,2233,3715,2317" href="#" alt="south_varrock" id="south_varrock">
-  <area shape="rect" coords="2781,2277,3036,2364" href="#" alt="party_room2" id="party_room2">
-  <area shape="rect" coords="811,2848,946,2979" href="#" alt="lietya" id="lietya">
-  <area shape="rect" coords="2220,2130,2459,2232" href="#" alt="catherby_beach" id="catherby_beach">
-  <area shape="rect" coords="3268,2476,3496,2583" href="#" alt="windmill_lumbridge" id="windmill_lumbridge">
-  <area shape="rect" coords="3099,1925,3189,2074" href="#" alt="edgeville" id="edgeville">
-  <area shape="rect" coords="3465,2094,3671,2226" href="#" alt="varrock" id="varrock">
-  <area shape="rect" coords="2716,1901,2884,2114" href="#" alt="east_goblin_village" id="east_goblin_village">
-  <area shape="rect" coords="3390,2317,3532,2443" href="#" alt="champions_guild" id="champions_guild">
-  <area shape="rect" coords="3468,2724,3573,2860" href="#" alt="lumbridge_castle" id="lumbridge_castle">
-  <area shape="rect" coords="3576,2737,3626,2866" href="#" alt="lumbridge_castle2" id="lumbridge_castle2">
-  <area shape="rect" coords="2501,2019,2671,2202" href="#" alt="taverley" id="taverley">
-  <area shape="rect" coords="2893,1861,3074,1935" href="#" alt="north_monastrey" id="north_monastrey">
-  <area shape="rect" coords="1552,2440,1721,2625" href="#" alt="ardougne_castle" id="ardougne_castle">
-  <area shape="rect" coords="1737,2098,1800,2206" href="#" alt="hemenster" id="hemenster">
-  <area shape="rect" coords="1918,1501,2128,1637" href="#" alt="sotheast_rellekka" id="sotheast_rellekka">
-  <area shape="rect" coords="2812,1295,3096,1386" href="#" alt="bandit_camp_wild" id="bandit_camp_wild">
-  <area shape="rect" coords="2106,2110,2215,2300" href="#" alt="keep_le_faye" id="keep_le_faye">
-  <area shape="rect" coords="1759,3077,1952,3248" href="#" alt="south_yanille" id="south_yanille">
-  <area shape="rect" coords="2615,2754,2836,2849" href="#" alt="rimmington" id="rimmington">
-  <area shape="circle" coords="3182,628,67" href="#" alt="mage_arena" id="mage_arena">
-  <area shape="rect" coords="1589,3108,1745,3240" href="#" alt="yanille" id="yanille">
-  <area shape="rect" coords="1923,2175,2090,2274" href="#" alt="Sorcerer_Tower" id="Sorcerer_Tower">
-  <area shape="rect" coords="3547,2321,3765,2383" href="#" alt="east_varrock_mine" id="east_varrock_mine">
-  <area shape="rect" coords="1609,2151,1721,2268" href="#" alt="fishing_guild" id="fishing_guild">
-  <area shape="rect" coords="1161,3173,1260,3239" href="#" alt="castlewars_lobby" id="castlewars_lobby">
-  <area shape="rect" coords="2588,2546,2696,2647" href="#" alt="crafting_guild" id="crafting_guild">
-  <area shape="rect" coords="1033,2008,1261,2110" href="#" alt="tree_gnome2" id="tree_gnome2">
-  <area shape="rect" coords="2708,2555,2820,2747" href="#" alt="north_rimmington" id="north_rimmington">
-  <area shape="rect" coords="1914,1913,2080,2154" href="#" alt="seers_village" id="seers_village">
-  <area shape="rect" coords="3653,1897,3738,2024" href="#" alt="brew_varrock" id="brew_varrock">
-  <area shape="rect" coords="2529,1709,2686,1861" href="#" alt="burthorpe" id="burthorpe">
-  <area shape="rect" coords="1727,1300,1929,1437" href="#" alt="rellekka" id="rellekka">
-  <area shape="rect" coords="1162,2412,1535,2648" href="#" alt="west_ardougne" id="west_ardougne">
-  <area shape="rect" coords="1780,1470,1912,1668" href="#" alt="west_rellekka2" id="west_rellekka2">
-  <area shape="rect" coords="3410,731,3840,1118" href="#" alt="demonic_ruins" id="demonic_ruins">
-  <area shape="rect" coords="3281,1441,3510,1791" href="#" alt="north_chaos_tample" id="north_chaos_tample">
-  <area shape="circle" coords="3258,2229,24" href="#" alt="air_altar" id="air_altar">
-  <area shape="rect" coords="3546,1689,3928,1798" href="#" alt="north_lumber2" id="north_lumber2">
-  <area shape="rect" coords="3216,2064,3389,2196" href="#" alt="cooks_guild" id="cooks_guild">
-  <area shape="rect" coords="2491,1864,2674,2012" href="#" alt="north_taverley" id="north_taverley">
-  <area shape="rect" coords="2846,2592,3093,2689" href="#" alt="north_port_sarim" id="north_port_sarim">
-  <area shape="rect" coords="3557,2389,3785,2454" href="#" alt="sount_varrock2" id="sount_varrock2">
-  <area shape="rect" coords="1736,1871,1901,2032" href="#" alt="mcgrubors_wood" id="mcgrubors_wood">
-  <area shape="rect" coords="1312,3032,1609,3101" href="#" alt="south_gnome_village" id="south_gnome_village">
-  <area shape="rect" coords="1955,2353,2109,2403" href="#" alt="legends_guild2" id="legends_guild2">
-  <area shape="rect" coords="2930,1389,3146,1488" href="#" alt="bandit_camp2" id="bandit_camp2">
-  <area shape="rect" coords="3090,2530,3266,2851" href="#" alt="draynor" id="draynor">
-  <area shape="rect" coords="4301,1899,4440,2037" href="#" alt="canifis" id="canifis">
-  <area shape="rect" coords="3077,2870,3273,3063" href="#" alt="wizards_tower" id="wizards_tower">
-  <area shape="rect" coords="1317,2021,1389,2113" href="#" alt="baxtorian_falls" id="baxtorian_falls">
-  <area shape="rect" coords="1398,2021,1475,2114" href="#" alt="baxtorian_falls2" id="baxtorian_falls2">
-  <area shape="rect" coords="1702,145,2131,511" href="#" alt="iceberg" id="iceberg">
-  <area shape="rect" coords="3581,1951,3644,2084" href="#" alt="varrock_museom" id="varrock_museom">
-  <area shape="rect" coords="771,727,1148,896" href="#" alt="frem_isles" id="frem_isles">
-  <area shape="rect" coords="1762,2738,1880,2843" href="#" alt="tower_of_life" id="tower_of_life">
-  <area shape="rect" coords="347,3021,577,3091" href="#" alt="tyras_camp3" id="tyras_camp3">
-  <area shape="rect" coords="3498,4168,3820,4358" href="#" alt="sophanem3" id="sophanem3">
-  <area shape="rect" coords="162,3558,762,3951" href="#" alt="souls_wars" id="souls_wars">
-  <area shape="rect" coords="1016,3853,1259,4040" href="#" alt="mobilising_armies" id="mobilising_armies">
-  <area shape="rect" coords="2306,2520,2453,2738" href="#" alt="crandor" id="crandor">
-  <area shape="rect" coords="1162,1839,1360,1997" href="#" alt="grand_tree" id="grand_tree">
-  <area shape="rect" coords="763,1315,957,1497" href="#" alt="fishing_colony" id="fishing_colony">
-</map>
+  <img id="world_map" src="world_map.png" usemap="#Map"/>
+  <map name="Map">
+    <area shape="rect" coords="1785,1440,1818,1466" href="#" alt="Swensen's_maze" id="Swensens_maze">
+    <area shape="rect" coords="4867,1922,4971,2057" href="#" alt="port_Phasmatys" id="port_Phasmatys">
+    <area shape="rect" coords="2234,1576,2263,1600" href="#" alt="Rellekka_Dungeon" id="Rellekka_Dungeon">
+    <area shape="rect" coords="3101,2283,3265,2500" href="#" alt="draynor_manor" id="draynor_manor">
+    <area shape="rect" coords="3593,572,3782,704" href="#" alt="rogue_castle" id="rogue_castle">
+    <area shape="rect" coords="3712,1804,3873,1895" href="#" alt="north_lumberyard" id="north_lumberyard">
+    <area shape="rect" coords="1163,3056,1242,3171" href="#" alt="wait_castlewars" id="wait_castlewars">
+    <area shape="rect" coords="1602,2930,1715,3020" href="#" alt="fight_arena" id="fight_arena">
+    <area shape="rect" coords="1272,2115,1332,2194" href="#" alt="gnome_agility" id="gnome_agility">
+    <area shape="rect" coords="2318,1699,2465,1756" href="#" alt="burt-death" id="burt-death">
+    <area shape="rect" coords="2327,1504,2616,1697" href="#" alt="death_plateau" id="death_plateau">
+    <area shape="rect" coords="2993,1941,3095,2073" href="#" alt="west_edgville" id="west_edgville">
+    <area shape="circle" coords="3573,2060,11" href="#" alt="varrock_sewers" id="varrock_sewers">
+    <area shape="rect" coords="2500,2912,2730,3033" href="#" alt="musa_point" id="musa_point">
+    <area shape="rect" coords="1535,2357,1575,2387" href="#" alt="druid_tower" id="druid_tower">
+    <area shape="rect" coords="1852,2696,1891,2729" href="#" alt="necromancer_tower" id="necromancer_tower">
+    <area shape="rect" coords="3857,2115,4000,2247" href="#" alt="digsite" id="digsite">
+    <area shape="rect" coords="2969,2376,3041,2448" href="#" alt="east_falador" id="east_falador">
+    <area shape="rect" coords="2778,2380,2946,2449" href="#" alt="south_falador" id="south_falador">
+    <area shape="rect" coords="1220,3247,1512,3426" href="#" alt="jiggig" id="jiggig">
+    <area shape="rect" coords="2988,802,3201,953" href="#" alt="lava_maze" id="lava_maze">
+    <area shape="rect" coords="1559,3331,1613,3396" href="#" alt="ogre_enclave" id="ogre_enclave">
+    <area shape="rect" coords="5221,1703,5367,1865" href="#" alt="dragontooth" id="dragontooth">
+    <area shape="rect" coords="4521,2503,4632,2566" href="#" alt="barrows" id="barrows">
+    <area shape="rect" coords="4521,2570,4626,2653" href="#" alt="barrows2" id="barrows2">
+    <area shape="rect" coords="4433,2315,4603,2495" href="#" alt="south_castle_drakan" id="south_castle_drakan">
+    <area shape="rect" coords="4102,2094,4282,2356" href="#" alt="mort_myre_swamp" id="mort_myre_swamp">
+    <area shape="rect" coords="2853,2698,3036,2882" href="#" alt="port_sarim" id="port_sarim">
+    <area shape="rect" coords="5301,3430,5386,3605" href="#" alt="trouble_brewing" id="trouble_brewing">
+    <area shape="rect" coords="3690,2854,4031,3041" href="#" alt="alkharid_town" id="alkharid_town">
+    <area shape="rect" coords="3703,2492,3869,2621" href="#" alt="alkharid_mine" id="alkharid_mine">
+    <area shape="rect" coords="4135,2466,4243,2666" href="#" alt="west_mortton" id="west_mortton">
+    <area shape="rect" coords="755,2179,1020,2431" href="#" alt="southwest_gnomestronghold" id="southwest_gnomestronghold">
+    <area shape="rect" coords="1009,1953,1087,2003" href="#" alt="gnomball" id="gnomball">
+    <area shape="rect" coords="4116,2359,4270,2463" href="#" alt="grotto" id="grotto">
+    <area shape="rect" coords="2153,2814,2266,2899" href="#" alt="brimhaven" id="brimhaven">
+    <area shape="rect" coords="1960,2779,2138,2898" href="#" alt="brimhaven2" id="brimhaven2">
+    <area shape="circle" coords="2400,2922,83" href="#" alt="karamja_volcano" id="karamja_volcano">
+    <area shape="rect" coords="2009,1666,2130,1807" href="#" alt="sinclair_mansion" id="sinclair_mansion">
+    <area shape="rect" coords="1380,3438,1607,3576" href="#" alt="feldip_hills" id="feldip_hills">
+    <area shape="rect" coords="2438,1288,2617,1367" href="#" alt="north_trollheim" id="north_trollheim">
+    <area shape="rect" coords="4070,1709,4211,1818" href="#" alt="slayer_tower" id="slayer_tower">
+    <area shape="rect" coords="2931,1594,3229,1680" href="#" alt="chaos_altar" id="chaos_altar">
+    <area shape="rect" coords="2923,1489,3029,1584" href="#" alt="dark_fortress" id="dark_fortress">
+    <area shape="rect" coords="2719,1686,3066,1858" href="#" alt="north_goblin_village" id="north_goblin_villag">
+    <area shape="rect" coords="1963,2278,2096,2346" href="#" alt="legend_guild" id="legend_guild">
+    <area shape="rect" coords="3853,3431,4006,3635" href="#" alt="pollnivneach" id="pollnivneach">
+    <area shape="rect" coords="2138,2555,2254,2638" href="#" alt="fishing_platform" id="fishing_platform">
+    <area shape="rect" coords="2802,717,3366,796" href="#" alt="north_lava_maze" id="north_lava_maze">
+    <area shape="rect" coords="2854,2887,3017,3056" href="#" alt="south_port_sarim" id="south_port_sarim">
+    <area shape="circle" coords="2467,3393,28" href="#" alt="nature_altar" id="nature_altar">
+    <area shape="rect" coords="993,936,1160,1105" href="#" alt="jatizso" id="jatizso">
+    <area shape="rect" coords="790,979,939,1025" href="#" alt="neitiznot" id="neitiznot">
+    <area shape="rect" coords="787,1036,953,1103" href="#" alt="neitiznot2" id="neitiznot2">
+    <area shape="rect" coords="2248,3106,2333,3294" href="#" alt="tai_bwo_wannai" id="tai_bwo_wannai">
+    <area shape="rect" coords="5210,3829,5389,3983" href="#" alt="harmony" id="harmony">
+    <area shape="rect" coords="644,2807,807,2979" href="#" alt="isafdar" id="isafdar">
+    <area shape="circle" coords="3785,2012,23" href="#" alt="earth_altar" id="earth_altar">
+    <area shape="rect" coords="353,2748,594,2989" href="#" alt="south_prifddinas" id="south_prifddinas">
+    <area shape="rect" coords="1103,2657,1298,2848" href="#" alt="unholy_altar" id="unholy_altar">
+    <area shape="rect" coords="2693,934,2827,1027" href="#" alt="chaos_tample" id="chaos_tample">
+    <area shape="rect" coords="2691,3231,2901,3408" href="#" alt="shipyard" id="shipyard">
+    <area shape="rect" coords="1738,2864,1938,3046" href="#" alt="khazard" id="khazard">
+    <area shape="rect" coords="4435,1721,4596,1855" href="#" alt="fenkenstrain" id="fenkenstrain">
+    <area shape="rect" coords="1043,2119,1251,2251" href="#" alt="tree_gnome" id="tree_gnome">
+    <area shape="circle" coords="3024,2102,21" href="#" alt="body_altar" id="body_altar">
+    <area shape="circle" coords="1401,3191,32" href="#" alt="ogre_island" id="ogre_island">
+    <area shape="rect" coords="1319,3594,1696,3922" href="#" alt="feldip_hunting" id="feldip_hunting">
+    <area shape="rect" coords="2540,3129,2672,3340" href="#" alt="crashed_glider" id="crashed_glider">
+    <area shape="rect" coords="2111,3464,2194,3567" href="#" alt="cairn_isle" id="cairn_isle">
+    <area shape="rect" coords="1312,1466,1484,1645" href="#" alt="light_house" id="light_house">
+    <area shape="rect" coords="1489,1487,1765,1677" href="#" alt="west_rellekka" id="west_rellekka">
+    <area shape="rect" coords="1362,2275,1467,2367" href="#" alt="combat_training" id="combat_training">
+    <area shape="rect" coords="1743,4393,1963,4548" href="#" alt="pest_control" id="pest_control">
+    <area shape="rect" coords="1930,2408,2041,2504" href="#" alt="south_legends_guild" id="south_legends_guild">
+    <area shape="circle" coords="1208,2919,64" href="#" alt="observatory" id="observatory">
+    <area shape="rect" coords="1546,1926,1658,2055" href="#" alt="coal_trucks" id="coal_trucks">
+    <area shape="rect" coords="3686,1477,3897,1679" href="#" alt="middle_wilderness_forest" id="middle_wilderness_forest">
+    <area shape="rect" coords="360,2618,559,2746" href="#" alt="elf_camp" id="elf_camp">
+    <area shape="circle" coords="3334,2968,20" href="#" alt="water_altar" id="water_altar">
+    <area shape="rect" coords="1733,4579,1936,4763" href="#" alt="pest_control2" id="pest_control2">
+    <area shape="circle" coords="3807,2674,19" href="#" alt="fire_altar" id="fire_altar">
+    <area shape="rect" coords="2134,1350,2312,1557" href="#" alt="mountain_camp" id="mountain_camp">
+    <area shape="rect" coords="2437,1374,2617,1498" href="#" alt="trollheim" id="trollheim">
+    <area shape="rect" coords="3864,2663,4039,2738" href="#" alt="duel_arena" id="duel_arena">
+    <area shape="rect" coords="3865,2747,4043,2827" href="#" alt="duel_arena2" id="duel_arena2">
+    <area shape="rect" coords="2853,1021,3103,1293" href="#" alt="north_bandit_camp" id="north_bandit_camp">
+    <area shape="circle" coords="2810,1895,23" href="#" alt="mind_altar" id="mind_altar">
+    <area shape="rect" coords="2388,1191,2538,1283" href="#" alt="ice_wolfs" id="ice_wolfs">
+    <area shape="rect" coords="2510,4216,2707,4369" href="#" alt="crash_island" id="crash_island">
+    <area shape="rect" coords="2063,4035,2298,4176" href="#" alt="marim" id="marim">
+    <area shape="rect" coords="2741,1397,2915,1673" href="#" alt="west_chaos_altar" id="west_chaos_altar">
+    <area shape="rect" coords="2782,3061,2922,3152" href="#" alt="mudskipper" id="mudskipper">
+    <area shape="rect" coords="1309,704,1599,823" href="#" alt="miscellania" id="miscellania">
+    <area shape="rect" coords="1610,712,1755,919" href="#" alt="etceteria" id="etceteria">
+    <area shape="poly" coords="2472,2113,2477,1869,2272,1881,2260,1949,2370,1957,2389,2084" href="#" alt="white_wolf_mountain" id="white_wolf_mountain">
+    <area shape="rect" coords="738,1569,1034,1792" href="#" alt="falconer" id="falconer">
+    <area shape="rect" coords="4269,2673,4487,2911" href="#" alt="burgh_de_rott" id="burgh_de_rott">
+    <area shape="rect" coords="1933,4220,2339,4382" href="#" alt="south_ape_atoll" id="south_ape_atoll">
+    <area shape="rect" coords="1358,1095,1554,1292" href="#" alt="water_birth" id="water_birth">
+    <area shape="rect" coords="392,915,597,1087" href="#" alt="pirate_cove" id="pirate_cove">
+    <area shape="rect" coords="4309,2095,4433,2204" href="#" alt="south_canifis" id="south_canifis">
+    <area shape="rect" coords="4110,2038,4290,2088" href="#" alt="mort_myre_entrance" id="mort_myre_entrance">
+    <area shape="rect" coords="3915,3876,4010,3961" href="#" alt="agility_pyramid" id="agility_pyramid">
+    <area shape="rect" coords="2343,3136,2529,3345" href="#" alt="east_tai_bwo" id="east_tai_bwo">
+    <area shape="rect" coords="3308,3456,3453,3570" href="#" alt="bandit_camp" id="bandit_camp">
+    <area shape="rect" coords="3318,3703,3626,4018" href="#" alt="pyramid" id="pyramid">
+    <area shape="rect" coords="2165,3095,2240,3300" href="#" alt="tai_bwo_wannai2" id="tai_bwo_wannai2">
+    <area shape="rect" coords="2527,3417,2739,3590" href="#" alt="west_karamja_glider" id="west_karamja_glider">
+    <area shape="rect" coords="4120,1899,4289,2032" href="#" alt="east_canifis" id="east_canifis">
+    <area shape="rect" coords="4460,1920,4816,2203" href="#" alt="hunted_woods" id="hunted_woods">
+    <area shape="rect" coords="316,3105,575,3229" href="#" alt="south_tyras" id="south_tyras">
+    <area shape="rect" coords="2549,1183,2701,1283" href="#" alt="north_trollheim2" id="north_trollheim2">
+    <area shape="rect" coords="2152,2908,2304,3023" href="#" alt="brimhaven3" id="brimhaven3">
+    <area shape="rect" coords="1964,2912,2137,3027" href="#" alt="west_brimhaven" id="west_brimhaven">
+    <area shape="rect" coords="3531,4107,3785,4155" href="#" alt="sphinx" id="sphinx">
+    <area shape="rect" coords="726,2989,925,3113" href="#" alt="north_poison_waste" id="north_poison_waste">
+    <area shape="rect" coords="4089,3042,4406,3168" href="#" alt="ruins_of_uzer" id="ruins_of_uzer">
+    <area shape="rect" coords="208,652,359,820" href="#" alt="east_lunar" id="east_lunar">
+    <area shape="rect" coords="1313,832,1593,982" href="#" alt="miscellania2" id="miscellania2">
+    <area shape="circle" coords="2437,2295,18" href="#" alt="law_altar" id="law_altar">
+    <area shape="rect" coords="4384,2539,4517,2654" href="#" alt="east_mortton" id="east_mortton">
+    <area shape="rect" coords="2362,1765,2513,1854" href="#" alt="warriors_guild" id="warriors_guild">
+    <area shape="circle" coords="4501,2050,21" href="#" alt="warewolf_agility" id="warewolf_agility">
+    <area shape="rect" coords="2170,3307,2325,3369" href="#" alt="south_tai_bwo" id="south_tai_bwo">
+    <area shape="rect" coords="2195,3618,2806,3709" href="#" alt="eastern_kharazi" id="eastern_kharazi">
+    <area shape="rect" coords="867,3243,1197,3332" href="#" alt="south_castlewars" id="south_castlewars">
+    <area shape="rect" coords="3484,3180,3678,3298" href="#" alt="north_bedabin" id="north_bedabin">
+    <area shape="rect" coords="3665,3302,3806,3425" href="#" alt="desert_mining_camp" id="desert_mining_camp">
+    <area shape="rect" coords="4138,2675,4264,2835" href="#" alt="abandoned_mine" id="abandoned_mine">
+    <area shape="rect" coords="4044,3398,4255,3618" href="#" alt="north_nardah" id="north_nardah">
+    <area shape="rect" coords="758,1851,970,2108" href="#" alt="eagles_peak" id="eagles_peak">
+    <area shape="rect" coords="5203,3425,5295,3602" href="#" alt="trouble_brewing2" id="trouble_brewing2">
+    <area shape="rect" coords="2969,532,3014,612" href="#" alt="pirates_hideout" id="pirates_hideout">
+    <area shape="rect" coords="1915,1031,2110,1179" href="#" alt="north_relleka_hunt" id="north_relleka_hunt">
+    <area shape="rect" coords="1989,4132,2058,4212" href="#" alt="marim_main_gate" id="marim_main_gate">
+    <area shape="rect" coords="3482,3070,3616,3168" href="#" alt="kalphite_hive" id="kalphite_hive">
+    <area shape="rect" coords="2319,3429,2487,3607" href="#" alt="shilo_village" id="shilo_village">
+    <area shape="rect" coords="3688,3044,3913,3286" href="#" alt="Shantay_Pass" id="Shantay_Pass">
+    <area shape="rect" coords="4840,3296,5161,3470" href="#" alt="moss_leharmless" id="moss_leharmless">
+    <area shape="rect" coords="4652,2220,4884,2914" href="#" alt="meiyerditch" id="meiyerditch">
+    <area shape="rect" coords="4828,3495,5127,3671" href="#" alt="mos_coast" id="mos_coast">
+    <area shape="rect" coords="587,3004,718,3213" href="#" alt="elf_tracker" id="elf_tracker">
+    <area shape="rect" coords="4820,1924,4863,2063" href="#" alt="Phasmatys_brewery" id="Phasmatys_brewery">
+    <area shape="rect" coords="1621,3438,1785,3584" href="#" alt="Rantz" id="Rantz">
+    <area shape="rect" coords="3680,3807,3907,4004" href="#" alt="north_sophanem" id="north_sophanem">
+    <area shape="rect" coords="4010,3625,4237,3864" href="#" alt="nardah" id="nardah">
+    <area shape="rect" coords="798,2503,964,2719" href="#" alt="arandar" id="arandar">
+    <area shape="rect" coords="3444,3321,3656,3448" href="#" alt="east_bedabin" id="east_bedabin">
+    <area shape="rect" coords="4811,1845,4887,1911" href="#" alt="ecto" id="ecto">
+    <area shape="rect" coords="4642,1720,4838,1816" href="#" alt="shipwrecked" id="shipwrecked">
+    <area shape="rect" coords="4298,2219,4425,2479" href="#" alt="the_hollows" id="the_hollows">
+    <area shape="rect" coords="4321,2045,4468,2089" href="#" alt="Myreque_hideout" id="Myreque_hideout">
+    <area shape="rect" coords="3513,3549,3789,3691" href="#" alt="north_pyramid" id="north_pyramid">
+    <area shape="rect" coords="31,593,201,884" href="#" alt="lunar_isle" id="lunar_isle">
+    <area shape="rect" coords="1935,2521,2090,2648" href="#" alt="witchaven" id="witchaven">
+    <area shape="rect" coords="4081,3178,4404,3379" href="#" alt="ruins_of_uzer2" id="ruins_of_uzer2">
+    <area shape="rect" coords="3545,4042,3784,4093" href="#" alt="Jalsavrah_Pyramid" id="Jalsavrah_Pyramid">
+    <area shape="rect" coords="2171,3732,2830,3802" href="#" alt="south_eastern_kharazi" id="south_eastern_kharazi">
+    <area shape="rect" coords="3829,2256,4013,2449" href="#" alt="digsite2" id="digsite2">
+    <area shape="rect" coords="3453,1928,3573,2086" href="#" alt="varrock_palace" id="varrock_palace">
+    <area shape="rect" coords="3080,1860,3247,1912" href="#" alt="edgeville-black_knight" id="edgeville-black_knight">
+    <area shape="rect" coords="3686,2695,3845,2838" href="#" alt="lubridge-duel" id="lubridge-duel">
+    <area shape="rect" coords="2689,2274,2764,2477" href="#" alt="west_bank_falador" id="west_bank_falador">
+    <area shape="rect" coords="2611,2852,2817,2881" href="#" alt="south_rimmington" id="south_rimmington">
+    <area shape="rect" coords="3466,2602,3631,2709" href="#" alt="north_lumbridge" id="north_lumbridge">
+    <area shape="rect" coords="2272,2818,2307,2899" href="#" alt="brimhaven_agility" id="brimhaven_agility">
+    <area shape="poly" coords="2280,2288,2284,2433,2455,2440,2448,2364,2375,2288" href="#" alt="entrana" id="entrana">
+    <area shape="rect" coords="1598,2761,1761,2844" href="#" alt="monastrey" id="monastrey">
+    <area shape="rect" coords="3073,2100,3142,2229" href="#" alt="barbarian_village" id="barbarian_village">
+    <area shape="rect" coords="1745,2442,1910,2616" href="#" alt="east_ardougne_market" id="east_ardougne_market">
+    <area shape="rect" coords="1467,3118,1578,3223" href="#" alt="west_yanille" id="west_yanille">
+    <area shape="rect" coords="3369,2871,3595,3010" href="#" alt="lumbridge_swamp" id="lumbridge_swamp">
+    <area shape="rect" coords="1941,1286,2048,1481" href="#" alt="east_rellekka" id="east_rellekka">
+    <area shape="rect" coords="2091,1882,2189,1991" href="#" alt="camelot_castle" id="camelot_castle">
+    <area shape="rect" coords="965,3037,1155,3235" href="#" alt="castlewars" id="castlewars">
+    <area shape="rect" coords="3397,2090,3454,2142" href="#" alt="varrock_west_bank" id="varrock_west_bank">
+    <area shape="rect" coords="3478,1171,3895,1279" href="#" alt="east_ruins" id="east_ruins">
+    <area shape="rect" coords="2320,1350,2415,1477" href="#" alt="troll_stronghold" id="troll_stronghold">
+    <area shape="rect" coords="3283,1813,3673,1864" href="#" alt="north_varrock" id="north_varrock">
+    <area shape="rect" coords="3075,1696,3248,1852" href="#" alt="north_edgville" id="north_edgville">
+    <area shape="rect" coords="3524,1435,3653,1526" href="#" alt="southwest_boneyard" id="southwest_boneyard">
+    <area shape="rect" coords="3453,1292,3889,1426" href="#" alt="graveyard_of_shadows" id="graveyard_of_shadows">
+    <area shape="rect" coords="3198,1949,3263,2044" href="#" alt="east_edgeville" id="east_edgeville">
+    <area shape="rect" coords="3282,2679,3457,2816" href="#" alt="lumbridge-draynor" id="lumbridge-draynor">
+    <area shape="rect" coords="1370,2853,1520,3026" href="#" alt="tree_gnome_maze" id="tree_gnome_maze">
+    <area shape="rect" coords="2615,2659,2701,2752" href="#" alt="melzars_maze" id="melzars_maze">
+    <area shape="circle" coords="3266,1300,146" href="#" alt="wilderness_volcano" id="wilderness_volcano">
+    <area shape="rect" coords="3408,2233,3715,2317" href="#" alt="south_varrock" id="south_varrock">
+    <area shape="rect" coords="2781,2277,3036,2364" href="#" alt="party_room2" id="party_room2">
+    <area shape="rect" coords="811,2848,946,2979" href="#" alt="lietya" id="lietya">
+    <area shape="rect" coords="2220,2130,2459,2232" href="#" alt="catherby_beach" id="catherby_beach">
+    <area shape="rect" coords="3268,2476,3496,2583" href="#" alt="windmill_lumbridge" id="windmill_lumbridge">
+    <area shape="rect" coords="3099,1925,3189,2074" href="#" alt="edgeville" id="edgeville">
+    <area shape="rect" coords="3465,2094,3671,2226" href="#" alt="varrock" id="varrock">
+    <area shape="rect" coords="2716,1901,2884,2114" href="#" alt="east_goblin_village" id="east_goblin_village">
+    <area shape="rect" coords="3390,2317,3532,2443" href="#" alt="champions_guild" id="champions_guild">
+    <area shape="rect" coords="3468,2724,3573,2860" href="#" alt="lumbridge_castle" id="lumbridge_castle">
+    <area shape="rect" coords="3576,2737,3626,2866" href="#" alt="lumbridge_castle2" id="lumbridge_castle2">
+    <area shape="rect" coords="2501,2019,2671,2202" href="#" alt="taverley" id="taverley">
+    <area shape="rect" coords="2893,1861,3074,1935" href="#" alt="north_monastrey" id="north_monastrey">
+    <area shape="rect" coords="1552,2440,1721,2625" href="#" alt="ardougne_castle" id="ardougne_castle">
+    <area shape="rect" coords="1737,2098,1800,2206" href="#" alt="hemenster" id="hemenster">
+    <area shape="rect" coords="1918,1501,2128,1637" href="#" alt="sotheast_rellekka" id="sotheast_rellekka">
+    <area shape="rect" coords="2812,1295,3096,1386" href="#" alt="bandit_camp_wild" id="bandit_camp_wild">
+    <area shape="rect" coords="2106,2110,2215,2300" href="#" alt="keep_le_faye" id="keep_le_faye">
+    <area shape="rect" coords="1759,3077,1952,3248" href="#" alt="south_yanille" id="south_yanille">
+    <area shape="rect" coords="2615,2754,2836,2849" href="#" alt="rimmington" id="rimmington">
+    <area shape="circle" coords="3182,628,67" href="#" alt="mage_arena" id="mage_arena">
+    <area shape="rect" coords="1589,3108,1745,3240" href="#" alt="yanille" id="yanille">
+    <area shape="rect" coords="1923,2175,2090,2274" href="#" alt="Sorcerer_Tower" id="Sorcerer_Tower">
+    <area shape="rect" coords="3547,2321,3765,2383" href="#" alt="east_varrock_mine" id="east_varrock_mine">
+    <area shape="rect" coords="1609,2151,1721,2268" href="#" alt="fishing_guild" id="fishing_guild">
+    <area shape="rect" coords="1161,3173,1260,3239" href="#" alt="castlewars_lobby" id="castlewars_lobby">
+    <area shape="rect" coords="2588,2546,2696,2647" href="#" alt="crafting_guild" id="crafting_guild">
+    <area shape="rect" coords="1033,2008,1261,2110" href="#" alt="tree_gnome2" id="tree_gnome2">
+    <area shape="rect" coords="2708,2555,2820,2747" href="#" alt="north_rimmington" id="north_rimmington">
+    <area shape="rect" coords="1914,1913,2080,2154" href="#" alt="seers_village" id="seers_village">
+    <area shape="rect" coords="3653,1897,3738,2024" href="#" alt="brew_varrock" id="brew_varrock">
+    <area shape="rect" coords="2529,1709,2686,1861" href="#" alt="burthorpe" id="burthorpe">
+    <area shape="rect" coords="1727,1300,1929,1437" href="#" alt="rellekka" id="rellekka">
+    <area shape="rect" coords="1162,2412,1535,2648" href="#" alt="west_ardougne" id="west_ardougne">
+    <area shape="rect" coords="1780,1470,1912,1668" href="#" alt="west_rellekka2" id="west_rellekka2">
+    <area shape="rect" coords="3410,731,3840,1118" href="#" alt="demonic_ruins" id="demonic_ruins">
+    <area shape="rect" coords="3281,1441,3510,1791" href="#" alt="north_chaos_tample" id="north_chaos_tample">
+    <area shape="circle" coords="3258,2229,24" href="#" alt="air_altar" id="air_altar">
+    <area shape="rect" coords="3546,1689,3928,1798" href="#" alt="north_lumber2" id="north_lumber2">
+    <area shape="rect" coords="3216,2064,3389,2196" href="#" alt="cooks_guild" id="cooks_guild">
+    <area shape="rect" coords="2491,1864,2674,2012" href="#" alt="north_taverley" id="north_taverley">
+    <area shape="rect" coords="2846,2592,3093,2689" href="#" alt="north_port_sarim" id="north_port_sarim">
+    <area shape="rect" coords="3557,2389,3785,2454" href="#" alt="sount_varrock2" id="sount_varrock2">
+    <area shape="rect" coords="1736,1871,1901,2032" href="#" alt="mcgrubors_wood" id="mcgrubors_wood">
+    <area shape="rect" coords="1312,3032,1609,3101" href="#" alt="south_gnome_village" id="south_gnome_village">
+    <area shape="rect" coords="1955,2353,2109,2403" href="#" alt="legends_guild2" id="legends_guild2">
+    <area shape="rect" coords="2930,1389,3146,1488" href="#" alt="bandit_camp2" id="bandit_camp2">
+    <area shape="rect" coords="3090,2530,3266,2851" href="#" alt="draynor" id="draynor">
+    <area shape="rect" coords="4301,1899,4440,2037" href="#" alt="canifis" id="canifis">
+    <area shape="rect" coords="3077,2870,3273,3063" href="#" alt="wizards_tower" id="wizards_tower">
+    <area shape="rect" coords="1317,2021,1389,2113" href="#" alt="baxtorian_falls" id="baxtorian_falls">
+    <area shape="rect" coords="1398,2021,1475,2114" href="#" alt="baxtorian_falls2" id="baxtorian_falls2">
+    <area shape="rect" coords="1702,145,2131,511" href="#" alt="iceberg" id="iceberg">
+    <area shape="rect" coords="3581,1951,3644,2084" href="#" alt="varrock_museom" id="varrock_museom">
+    <area shape="rect" coords="771,727,1148,896" href="#" alt="frem_isles" id="frem_isles">
+    <area shape="rect" coords="1762,2738,1880,2843" href="#" alt="tower_of_life" id="tower_of_life">
+    <area shape="rect" coords="347,3021,577,3091" href="#" alt="tyras_camp3" id="tyras_camp3">
+    <area shape="rect" coords="3498,4168,3820,4358" href="#" alt="sophanem3" id="sophanem3">
+    <area shape="rect" coords="162,3558,762,3951" href="#" alt="souls_wars" id="souls_wars">
+    <area shape="rect" coords="1016,3853,1259,4040" href="#" alt="mobilising_armies" id="mobilising_armies">
+    <area shape="rect" coords="2306,2520,2453,2738" href="#" alt="crandor" id="crandor">
+    <area shape="rect" coords="1162,1839,1360,1997" href="#" alt="grand_tree" id="grand_tree">
+    <area shape="rect" coords="763,1315,957,1497" href="#" alt="fishing_colony" id="fishing_colony">
+  </map>
 
 
 
