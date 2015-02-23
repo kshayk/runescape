@@ -7,33 +7,72 @@ $(document).ready(function() {
 	$('img[usemap]').maphilight();
 	// clicking the edge of the page scrolls you in that direction.
 
-	$('#page_scroll_up').click(function () {
+	$('#page_scroll_up').on('mouseenter', function() {
+	    this.iid = setInterval(function() {
+				$('body,html').animate({scrollTop: "-=25"},1);
 
-		$('body,html').animate({scrollTop: "-=600"},800);
-
-		return false;
+	    }, 25);
+	}).on('mouseleave', function(){
+	    this.iid && clearInterval(this.iid);
 	});
 
-	$('#page_scroll_down').click(function () {
+	$('#page_scroll_down').on('mouseenter', function() {
+	    this.iid = setInterval(function() {
+				$('body,html').animate({scrollTop: "+=25"},1);
 
-		$('body,html').animate({scrollTop: "+=600"},800);
-
-		return false;
+	    }, 25);
+	}).on('mouseleave', function(){
+	    this.iid && clearInterval(this.iid);
 	});
 
-	$('#page_scroll_left').click(function () {
+	$('#page_scroll_left').on('mouseenter', function() {
+	    this.iid = setInterval(function() {
+				$('body,html').animate({scrollLeft: "-=25"},1);
 
-		$('body,html').animate({scrollLeft: "-=600"},800);
-
-		return false;
+	    }, 25);
+	}).on('mouseleave', function(){
+	    this.iid && clearInterval(this.iid);
 	});
 
-	$('#page_scroll_right').click(function () {
+	$('#page_scroll_right').on('mouseenter', function() {
+			this.iid = setInterval(function() {
+				$('body,html').animate({scrollLeft: "+=25"},1);
 
-		$('body,html').animate({scrollLeft: "+=600"},800);
-
-		return false;
+			}, 25);
+	}).on('mouseleave', function(){
+			this.iid && clearInterval(this.iid);
 	});
+
+
+
+	//
+	// $('#page_scroll_up').click(function () {
+	//
+	// 	$('body,html').animate({scrollTop: "-=600"},800);
+	//
+	// 	return false;
+	// });
+	//
+	// $('#page_scroll_down').click(function () {
+	//
+	// 	$('body,html').animate({scrollTop: "+=600"},800);
+	//
+	// 	return false;
+	// });
+	//
+	// $('#page_scroll_left').click(function () {
+	//
+	// 	$('body,html').animate({scrollLeft: "-=600"},800);
+	//
+	// 	return false;
+	// });
+	//
+	// $('#page_scroll_right').click(function () {
+	//
+	// 	$('body,html').animate({scrollLeft: "+=600"},800);
+	//
+	// 	return false;
+	// });
 
 
 
