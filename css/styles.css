@@ -1,0 +1,46 @@
+body{
+  overflow: hidden;
+  margin: 0 auto;
+}
+html{
+  margin: 0 auto;
+  }
+#container{
+  position:fixed;
+  margin-top:2px;
+  margin-left:2px;
+  z-index:1;
+  padding:0;
+  }
+#page_scroll_down{
+  width: 90%;
+  height: 7.5%;
+  position: fixed;
+  top : 95%;
+  left: 5%;
+  z-index:1;
+}
+#page_scroll_up{
+  width: 72.5%;
+  height: 7.5%;
+  position: fixed;
+  left: 22.5%;
+  z-index:1;
+}
+#page_scroll_left{
+  width: 7.5%;
+  height:94%;
+  position: fixed;
+  top: 6%;
+  z-index:1;
+}
+#page_scroll_right{
+  width: 7.5%;
+  height:100%;
+  position: fixed;
+  left: 95%;
+  z-index:1;
+}
+#iframe{
+  border:0
+}
